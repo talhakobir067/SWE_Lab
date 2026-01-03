@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Testing Lab – Google Test (GTest)</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        section { background: white; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; }
+        pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: Consolas, monospace; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit Testing Lab – Google Test (GTest)</h1>
+    </header>
+
+    <section>
+        <h2>1. Introduction / Description</h2>
+        <p>Unit Testing is a method where individual units or components of software are tested in isolation to ensure correctness. Google Test (GTest) is a powerful testing framework for C++.</p>
+        <p>In this lab, you will create a simple Calculator program and write unit tests using GTest.</p>
+    </section>
+
+    <section>
+        <h2>2. Required Equipment / Software</h2>
+        <ul>
+            <li>C++ compiler / IDE</li>
+            <li>Google Test (GTest) library installed</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Procedure</h2>
+
+        <h3>Step 1: Write Code to Test</h3>
+        <p>Create <strong>calculator.h</strong> and <strong>calculator.cpp</strong>.</p>
+        <pre><code>// calculator.h
+class Calculator {
+public:
+    int add(int a, int b);
+    int subtract(int a, int b);
+    int multiply(int a, int b);
+    double divide(double a, double b);
+};</code></pre>
+
+        <h3>Step 2: Set Up Test Environment</h3>
+        <pre><code>#include &lt;gtest/gtest.h&gt;
+#include "calculator.h"</code></pre>
+
+        <h3>Step 3: Write Test Cases</h3>
+        <pre><code>// test.cpp
+TEST(AdditionTest, PositiveNumbers) {
+    Calculator calc;
+    EXPECT_EQ(calc.add(2, 3), 5);
+    ASSERT_EQ(calc.add(10, 20), 30);
+}
+
+TEST(AdditionTest, NegativeNumbers) {
+    Calculator calc;
+    EXPECT_EQ(calc.add(-2, -3), -5);
+}
+
+TEST(AdditionTest, WithZero) {
+    Calculator calc;
+    EXPECT_EQ(calc.add(5, 0), 5);
+}</code></pre>
+
+        <h3>Step 4: Compile & Run</h3>
+        <p>Compile <code>calculator.cpp</code>, <code>test.cpp</code>, and GTest together, then run the executable.</p>
+
+        <h3>Step 5: Analyze Results</h3>
+        <p>You will see pass/fail results in the console. Fix any issues until all tests pass.</p>
+
+        <h3>Step 6: Report</h3>
+        <p>Document your code and include screenshots of GTest output showing successful tests.</p>
+    </section>
+</body>
+</html>
